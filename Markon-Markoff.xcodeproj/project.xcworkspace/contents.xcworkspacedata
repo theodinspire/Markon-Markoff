@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Markon-Markoff.xcodeproj">
+      location = "self:/Users/corms/Documents/Homework/CSC594NLP/Markon-Markoff/MarkonMarkoff.xcodeproj">
    </FileRef>
 </Workspace>

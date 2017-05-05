@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		A0E883051EB8F54B00CA9197 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E883041EB8F54B00CA9197 /* main.swift */; };
+		A0E8830C1EB8F5CC00CA9197 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E8830B1EB8F5CC00CA9197 /* Counter.swift */; };
+		A0E8830F1EB941E100CA9197 /* StreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E8830E1EB941E100CA9197 /* StreamReader.swift */; };
+		A0E883111EB946F500CA9197 /* SentenceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E883101EB946F500CA9197 /* SentenceBuilder.swift */; };
+		A0F513A41EBACB8E00418687 /* Emissor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F513A31EBACB8E00418687 /* Emissor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +27,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A0E883011EB8F54B00CA9197 /* Markon-Markoff */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Markon-Markoff"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A04D82201EBBB8BD0036AAE3 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; };
+		A0E883011EB8F54B00CA9197 /* MarkonMarkoff */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MarkonMarkoff; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0E883041EB8F54B00CA9197 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		A0E8830B1EB8F5CC00CA9197 /* Counter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
+		A0E8830E1EB941E100CA9197 /* StreamReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamReader.swift; sourceTree = "<group>"; };
+		A0E883101EB946F500CA9197 /* SentenceBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentenceBuilder.swift; sourceTree = "<group>"; };
+		A0F513A31EBACB8E00418687 /* Emissor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emissor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A04D821E1EBBB80B0036AAE3 /* Playground */ = {
+			isa = PBXGroup;
+			children = (
+				A04D82201EBBB8BD0036AAE3 /* Playground.playground */,
+			);
+			name = Playground;
+			sourceTree = "<group>";
+		};
 		A0E882F81EB8F54B00CA9197 = {
 			isa = PBXGroup;
 			children = (
@@ -49,7 +66,7 @@
 		A0E883021EB8F54B00CA9197 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A0E883011EB8F54B00CA9197 /* Markon-Markoff */,
+				A0E883011EB8F54B00CA9197 /* MarkonMarkoff */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -57,17 +74,46 @@
 		A0E883031EB8F54B00CA9197 /* Markon-Markoff */ = {
 			isa = PBXGroup;
 			children = (
+				A04D821E1EBBB80B0036AAE3 /* Playground */,
+				A0F513A51EBACE6200418687 /* Utilities */,
+				A0E883121EB9471700CA9197 /* IO */,
+				A0E8830D1EB8F71300CA9197 /* Model */,
 				A0E883041EB8F54B00CA9197 /* main.swift */,
 			);
 			path = "Markon-Markoff";
 			sourceTree = "<group>";
 		};
+		A0E8830D1EB8F71300CA9197 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A0E8830B1EB8F5CC00CA9197 /* Counter.swift */,
+				A0F513A31EBACB8E00418687 /* Emissor.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A0E883121EB9471700CA9197 /* IO */ = {
+			isa = PBXGroup;
+			children = (
+				A0E8830E1EB941E100CA9197 /* StreamReader.swift */,
+				A0E883101EB946F500CA9197 /* SentenceBuilder.swift */,
+			);
+			name = IO;
+			sourceTree = "<group>";
+		};
+		A0F513A51EBACE6200418687 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A0E883001EB8F54B00CA9197 /* Markon-Markoff */ = {
+		A0E883001EB8F54B00CA9197 /* MarkonMarkoff */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A0E883081EB8F54B00CA9197 /* Build configuration list for PBXNativeTarget "Markon-Markoff" */;
+			buildConfigurationList = A0E883081EB8F54B00CA9197 /* Build configuration list for PBXNativeTarget "MarkonMarkoff" */;
 			buildPhases = (
 				A0E882FD1EB8F54B00CA9197 /* Sources */,
 				A0E882FE1EB8F54B00CA9197 /* Frameworks */,
@@ -77,9 +123,9 @@
 			);
 			dependencies = (
 			);
-			name = "Markon-Markoff";
+			name = MarkonMarkoff;
 			productName = "Markon-Markoff";
-			productReference = A0E883011EB8F54B00CA9197 /* Markon-Markoff */;
+			productReference = A0E883011EB8F54B00CA9197 /* MarkonMarkoff */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -98,7 +144,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A0E882FC1EB8F54B00CA9197 /* Build configuration list for PBXProject "Markon-Markoff" */;
+			buildConfigurationList = A0E882FC1EB8F54B00CA9197 /* Build configuration list for PBXProject "MarkonMarkoff" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -110,7 +156,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A0E883001EB8F54B00CA9197 /* Markon-Markoff */,
+				A0E883001EB8F54B00CA9197 /* MarkonMarkoff */,
 			);
 		};
 /* End PBXProject section */
@@ -120,7 +166,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0E883111EB946F500CA9197 /* SentenceBuilder.swift in Sources */,
+				A0E8830F1EB941E100CA9197 /* StreamReader.swift in Sources */,
+				A0E8830C1EB8F5CC00CA9197 /* Counter.swift in Sources */,
 				A0E883051EB8F54B00CA9197 /* main.swift in Sources */,
+				A0F513A41EBACB8E00418687 /* Emissor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,7 +286,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A0E882FC1EB8F54B00CA9197 /* Build configuration list for PBXProject "Markon-Markoff" */ = {
+		A0E882FC1EB8F54B00CA9197 /* Build configuration list for PBXProject "MarkonMarkoff" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0E883061EB8F54B00CA9197 /* Debug */,
@@ -245,13 +295,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0E883081EB8F54B00CA9197 /* Build configuration list for PBXNativeTarget "Markon-Markoff" */ = {
+		A0E883081EB8F54B00CA9197 /* Build configuration list for PBXNativeTarget "MarkonMarkoff" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0E883091EB8F54B00CA9197 /* Debug */,
 				A0E8830A1EB8F54B00CA9197 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
