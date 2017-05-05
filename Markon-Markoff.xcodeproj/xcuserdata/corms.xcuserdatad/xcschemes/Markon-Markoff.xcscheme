@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A0E883001EB8F54B00CA9197"
-               BuildableName = "MarkonMarkoff"
-               BlueprintName = "MarkonMarkoff"
-               ReferencedContainer = "container:MarkonMarkoff.xcodeproj">
+               BuildableName = "Markon-Markoff"
+               BlueprintName = "Markon-Markoff"
+               ReferencedContainer = "container:Markon-Markoff.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0E883001EB8F54B00CA9197"
-            BuildableName = "MarkonMarkoff"
-            BlueprintName = "MarkonMarkoff"
-            ReferencedContainer = "container:MarkonMarkoff.xcodeproj">
+            BuildableName = "Markon-Markoff"
+            BlueprintName = "Markon-Markoff"
+            ReferencedContainer = "container:Markon-Markoff.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0E883001EB8F54B00CA9197"
-            BuildableName = "MarkonMarkoff"
-            BlueprintName = "MarkonMarkoff"
-            ReferencedContainer = "container:MarkonMarkoff.xcodeproj">
+            BuildableName = "Markon-Markoff"
+            BlueprintName = "Markon-Markoff"
+            ReferencedContainer = "container:Markon-Markoff.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0E883001EB8F54B00CA9197"
-            BuildableName = "MarkonMarkoff"
-            BlueprintName = "MarkonMarkoff"
-            ReferencedContainer = "container:MarkonMarkoff.xcodeproj">
+            BuildableName = "Markon-Markoff"
+            BlueprintName = "Markon-Markoff"
+            ReferencedContainer = "container:Markon-Markoff.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

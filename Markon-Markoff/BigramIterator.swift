@@ -8,10 +8,21 @@
 
 import Foundation
 
-struct BigramPair: IteratorProtocol {
-    let prev = (word: "<s>", tag: "<s>")
-    let sentence: [WordTagPair]
+struct BigramIterator: IteratorProtocol {
+    var prev = (word: "<s>", tag: "<s>")
+    var sentenceIterator: IndexingIterator<[WordTagPair]>
+    
+    init(sentence: [WordTagPair]) {
+        sentenceIterator = sentence.makeIterator()
+    }
     
     mutating func next() -> (first: WordTagPair, Second: WordTagPair)? {
+        guard prev.tag != "</s>" else { return nil }
+        
+        let first = prev
+        let second = sentenceIterator.next() ?? ("</s>", "</s>")
+        prev = second
+        
+        return (first, second)
     }
 }

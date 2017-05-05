@@ -12,13 +12,25 @@ class Counter<T> where T: Hashable {
     var counts = [T : Int]()
     var total = 0
     
-    // Add item to counter
-    func add(element: T) {
-        total += 1
-        guard let count = counts[element] else {
-            counts[element] = 1
-            return
+    // Subscript!
+    private(set) subscript(element: T) -> Int {
+        get { return counts[element] ?? 0 }
+        set {
+            total += newValue - (counts[element] ?? 0)
+            counts[element] = newValue
         }
-        counts[element] = count + 1
+    }
+    
+    // Add item to counter
+    func add(element: T) { self[element] += 1 }
+    
+    func probability(of element: T) -> Double {
+        return Double(self[element]) / Double(total)
+    }
+}
+
+extension Counter: Sequence {
+    func makeIterator() -> DictionaryIterator<T, Int> {
+        return counts.makeIterator()
     }
 }

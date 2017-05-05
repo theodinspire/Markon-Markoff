@@ -8,7 +8,22 @@
 
 import Foundation
 
-class Bigram {
-    let counter = Counter<Tag>()
-    let map = [Tag: Counter<Tag>]()
+class BigramDistribution {
+    //let counter = Counter<Tag>()
+    var table = [Tag: Counter<Tag>]()
+    
+    private(set) var closed = false
+    
+    func count(first: Tag, second: Tag) {
+        guard !closed else { return }
+        
+        if table[first] == nil { table[first] = Counter() }
+        table[first]?.add(element: second)
+    }
+    
+    func count(pair: (first: WordTagPair, second: WordTagPair)) {
+        count(first: pair.first.tag, second: pair.second.tag)
+    }
+    
+    func close() { closed = true }
 }
