@@ -21,7 +21,7 @@ for sentence in builder {
     }
 }
 
-let viterbi = Viterbi(closingEmissor: emissor, andBigrams: bigrams)
+let viterbi = VitMostLikelyTagSmoothing(closingEmissor: emissor, andBigrams: bigrams)
 
 guard let testStream = StreamReader(path: "WSJ-test.txt") else { exit(EXIT_FAILURE) }
 let testBuilder = SentenceBuilder(withReader: testStream)
