@@ -13,28 +13,37 @@ let builder = SentenceBuilder(withReader: stream)
 
 let emissor = Emissor()
 let bigrams = BigramDistribution()
-var set: Set<String> = []
-var sentenceCount = 0
-var wordCount = 0
 
 for sentence in builder {
-    sentenceCount += 1
-    wordCount += sentence.count
     for (one, two) in sentence.pairs {
         emissor.count(pair: two)
         bigrams.count(first: one.tag, second: two.tag)
-        set.insert(two.word)
     }
 }
 
-emissor.close()
-bigrams.close()
+let viterbi = Viterbi(closingEmissor: emissor, andBigrams: bigrams)
 
-var bigramCount = 0
+guard let testStream = StreamReader(path: "WSJ-test.txt") else { exit(EXIT_FAILURE) }
+let testBuilder = SentenceBuilder(withReader: testStream)
 
-for (_, two) in bigrams.table { bigramCount += two.counts.count }
+guard let output = StreamWriter(destinationFile: "output-WSJ-test.txt") else { exit(EXIT_FAILURE) }
 
-print("Number of sentences: \(sentenceCount)")
-print("Number of words: \(wordCount)")
-print("Total number of bigrams: \(bigramCount)")
-print("Total unique words: \(set.count)")
+var wordCount = 0
+var correct = 0
+
+for testSentence in testBuilder {
+    let predictedTags = viterbi.getTagSequenceWithMostLikelyTagForUnkowns(for: testSentence)
+    
+    for (i, pair) in testSentence.enumerated() {
+        output.write(line: "\(pair.word) \(pair.tag) \(predictedTags[i])")
+        wordCount += 1
+        correct += pair.tag == predictedTags[i] ? 1 : 0
+    }
+    
+    output.write(line: "")
+}
+
+let percent = 100.0 * Double(correct) / Double(wordCount)
+print(percent)
+
+output.close()

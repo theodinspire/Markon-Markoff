@@ -5,13 +5,13 @@
 //  Created by Eric Cormack on 5/2/17.
 //  Copyright © 2017 the Odin Spire. All rights reserved.
 //
-//  Code pulled from http://stackoverflow.com/questions/24581517/read-a-file-url-line-by-line-in-swift
-//
+//  Code pulled from 
+//  http://stackoverflow.com/questions/24581517/read-a-file-url-line-by-line-in-swift
+//  Thanks to Martin R
 
 import Foundation
 
 class StreamReader  {
-    
     let encoding : String.Encoding
     let chunkSize : Int
     var fileHandle : FileHandle!

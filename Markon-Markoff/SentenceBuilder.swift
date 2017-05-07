@@ -9,7 +9,6 @@
 import Foundation
 
 typealias Word = String
-typealias Tag = String
 typealias WordTagPair = (word: Word, tag: Tag)
 
 class SentenceBuilder: Sequence {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Counter<T> where T: Hashable {
+class Counter<T>: Sequence where T: Hashable {
     var counts = [T : Int]()
     var total = 0
     
@@ -27,9 +27,17 @@ class Counter<T> where T: Hashable {
     func probability(of element: T) -> Double {
         return Double(self[element]) / Double(total)
     }
-}
-
-extension Counter: Sequence {
+    
+    func logProbability(of element: T) -> Double {
+        return log(probability(of: element))
+    }
+    
+    //
+    func keysSorted() -> [T] {
+        return counts.keys.sorted { self.counts[$0]! > self.counts[$1]! }
+    }
+    
+    //  Sequence conformation
     func makeIterator() -> DictionaryIterator<T, Int> {
         return counts.makeIterator()
     }
