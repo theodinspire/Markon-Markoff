@@ -11,7 +11,7 @@ import Foundation
 typealias Word = String
 typealias WordTagPair = (word: Word, tag: Tag)
 
-class SentenceBuilder: Sequence {
+class TaggedSentenceBuilder: Sequence {
     let reader: StreamReader
     
     init(withReader rdr: StreamReader, delimiter: String = "\n", encoding: String.Encoding = .utf8, chunkSize: Int = 4096) {
