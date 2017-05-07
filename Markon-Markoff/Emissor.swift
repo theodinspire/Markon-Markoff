@@ -10,6 +10,7 @@ import Foundation
 
 class Emissor {
     var table = [Tag: Counter<Word>]()
+    var words: Set<String> = []
     public private(set) var closed = false
     
     private(set) var singleTaggedWords = [Word: Tag]()
@@ -19,6 +20,7 @@ class Emissor {
         
         if table[tag] == nil { table[tag] = Counter() }
         table[tag]?.add(element: word.lowercased())
+        words.insert(word)
     }
     
     func count(pair: WordTagPair) { count(word: pair.word, withTag: pair.tag) }

@@ -39,6 +39,8 @@ class SentenceBuilder: Sequence {
         return sentence
     }
     
+    //func rewind() { reader.rewind() }
+    
     //  Sequence
     func makeIterator() -> AnyIterator<[WordTagPair]> {
         return AnyIterator {
