@@ -12,6 +12,8 @@ class Trainer {
     private init() { }
     
     static func train(from filename: String) -> (Emissor, BigramDistribution) {
+        print("Training...")
+        
         guard let stream = StreamReader(path: filename) else {
             print("\(filename) does not exist")
             exit(EXIT_FAILURE)
@@ -73,6 +75,7 @@ class Trainer {
         let shortPad: (String) -> String = { $0.padding(toLength: 4, withPad: " ", startingAt: 0) }
         
         output.write(line: "\(longPad("TOKEN")) \(shortPad("TAG")) \(shortPad("MDL"))")
+        output.write(line: "")
         
         for (i, sentence) in sentences.enumerated() {
             let prediction = predictedTags[i]
@@ -92,6 +95,7 @@ class Trainer {
     }
     
     static func tag(file filename: String, usingModel viterbi: Viterbi) {
+        print("Tagging...")
         guard let testStream = StreamReader(path: arguments[.Test]!) else { exit(EXIT_FAILURE) }
         let testBuilder = SentenceBuilder(withReader: testStream)
         
@@ -109,6 +113,7 @@ class Trainer {
         let shortPad: (String) -> String = { $0.padding(toLength: 4, withPad: " ", startingAt: 0) }
         
         output.write(line: "\(longPad("TOKEN")) \(shortPad("MDL"))")
+        output.write(line: "")
         
         for (i, sentence) in sentences.enumerated() {
             let prediction = predictedTags[i]

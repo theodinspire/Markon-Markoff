@@ -11,9 +11,13 @@ import Foundation
 class StreamWriter {
     var fileHandle: FileHandle!
     let encoding: String.Encoding
+    let filename: String
+    
+    private var closed = false
     
     init?(destinationFile path: String, encoding: String.Encoding = .utf8) {
         do {
+            filename = path
             let url = URL(fileURLWithPath: path)
             let parentDirectory = url.appendingPathComponent("../")
             
@@ -35,5 +39,11 @@ class StreamWriter {
         fileHandle.write(data)
     }
     
-    func close() { fileHandle.closeFile() }
+    func close() {
+        if !closed {
+            print("\(filename) written")
+            fileHandle.closeFile()
+            closed = true
+        }
+    }
 }

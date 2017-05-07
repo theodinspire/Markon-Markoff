@@ -64,7 +64,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "test"
+            argument = "tag"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
@@ -80,7 +80,7 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "WSJ-test.txt"
+            argument = "POS-test.txt"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
