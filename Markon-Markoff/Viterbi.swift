@@ -20,6 +20,7 @@ protocol Viterbi {
     init(closingEmissor emsr: Emissor, andBigrams bgrm: BigramDistribution)
     
     func getTagSequence(for pairs: [WordTagPair]) -> [Tag]
+    func getTagSequence(for words: [Word]) -> [Tag]
 }
 
 extension Viterbi {

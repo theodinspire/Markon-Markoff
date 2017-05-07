@@ -15,6 +15,8 @@
 		A04D82291EBBFCBE0036AAE3 /* BigramIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04D82281EBBFCBE0036AAE3 /* BigramIterator.swift */; };
 		A04D822D1EBC16C10036AAE3 /* BigramSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04D822C1EBC16C10036AAE3 /* BigramSequence.swift */; };
 		A074F1971EBD51BA009D71F6 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A074F1961EBD51BA009D71F6 /* Tag.swift */; };
+		A077AA6B1EBFCD7F0075422B /* SentenceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A077AA6A1EBFCD7F0075422B /* SentenceBuilder.swift */; };
+		A077AA6D1EBFCDFA0075422B /* Trainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A077AA6C1EBFCDFA0075422B /* Trainer.swift */; };
 		A0E883051EB8F54B00CA9197 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E883041EB8F54B00CA9197 /* main.swift */; };
 		A0E8830C1EB8F5CC00CA9197 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E8830B1EB8F5CC00CA9197 /* Counter.swift */; };
 		A0E8830F1EB941E100CA9197 /* StreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E8830E1EB941E100CA9197 /* StreamReader.swift */; };
@@ -43,6 +45,8 @@
 		A04D82281EBBFCBE0036AAE3 /* BigramIterator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigramIterator.swift; sourceTree = "<group>"; };
 		A04D822C1EBC16C10036AAE3 /* BigramSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigramSequence.swift; sourceTree = "<group>"; };
 		A074F1961EBD51BA009D71F6 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		A077AA6A1EBFCD7F0075422B /* SentenceBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentenceBuilder.swift; sourceTree = "<group>"; };
+		A077AA6C1EBFCDFA0075422B /* Trainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trainer.swift; sourceTree = "<group>"; };
 		A0E883011EB8F54B00CA9197 /* Markon-Markoff */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Markon-Markoff"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0E883041EB8F54B00CA9197 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		A0E8830B1EB8F5CC00CA9197 /* Counter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
@@ -67,6 +71,7 @@
 			children = (
 				A00DE7B01EBEA80200817645 /* Viterbi.swift */,
 				A00DE7B11EBEA80200817645 /* VitMostLikelyTagSmoothing.swift */,
+				A077AA6C1EBFCDFA0075422B /* Trainer.swift */,
 			);
 			name = Analysis;
 			sourceTree = "<group>";
@@ -103,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				A0E883101EB946F500CA9197 /* TaggedSentenceBuilder.swift */,
+				A077AA6A1EBFCD7F0075422B /* SentenceBuilder.swift */,
 				A0E8830B1EB8F5CC00CA9197 /* Counter.swift */,
 				A0F513A31EBACB8E00418687 /* Emissor.swift */,
 				A04D82241EBBF99C0036AAE3 /* BigramDistribution.swift */,
@@ -197,7 +203,9 @@
 				A0E8830F1EB941E100CA9197 /* StreamReader.swift in Sources */,
 				A00DE7B31EBEA80200817645 /* VitMostLikelyTagSmoothing.swift in Sources */,
 				A0E8830C1EB8F5CC00CA9197 /* Counter.swift in Sources */,
+				A077AA6D1EBFCDFA0075422B /* Trainer.swift in Sources */,
 				A0E883051EB8F54B00CA9197 /* main.swift in Sources */,
+				A077AA6B1EBFCD7F0075422B /* SentenceBuilder.swift in Sources */,
 				A0F513A41EBACB8E00418687 /* Emissor.swift in Sources */,
 				A04D822D1EBC16C10036AAE3 /* BigramSequence.swift in Sources */,
 				A04D82251EBBF99C0036AAE3 /* BigramDistribution.swift in Sources */,

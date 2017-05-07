@@ -12,6 +12,8 @@ class VitMostLikelyTagSmoothing: Viterbi {
     let emissor: Emissor
     let bigrams: BigramDistribution
     
+    private(set) var accuracyCalculated = false
+    
     var knownCount: Int = 0
     var knownCorrect: Int = 0
     var unknownCount: Int = 0
@@ -26,7 +28,25 @@ class VitMostLikelyTagSmoothing: Viterbi {
     }
     
     func getTagSequence(for pairs: [WordTagPair]) -> [Tag] {
-        let sentence = pairs.map { $0.word } + [Tag.sentenceEnd]
+        let tagList = getTagSequence(for: pairs.map { $0.word })
+        
+        for (i, pair) in pairs.enumerated() {
+            if emissor.words.contains(pair.word) {
+                knownCount += 1
+                knownCorrect += pair.tag == tagList[i] ? 1 : 0
+            } else {
+                unknownCount += 1
+                unknownCorrect += pair.tag == tagList[i] ? 1 : 0
+            }
+        }
+        
+        accuracyCalculated = true
+        
+        return tagList
+    }
+    
+    func getTagSequence(for words: [Word]) -> [Tag] {
+        let sentence = words + [Tag.sentenceEnd]
         
         var backPointersList = [[Tag: Tag]]()
         var prevProbabilities = [Tag.sentenceStart: 0.0]  //  Log Probability ln(1) = 0
@@ -120,16 +140,6 @@ class VitMostLikelyTagSmoothing: Viterbi {
         
         tagsReversed.removeLast()   //  Remove sentence start
         let tagList = tagsReversed.reversed() as [Tag]
-        
-        for (i, pair) in pairs.enumerated() {
-            if emissor.words.contains(pair.word) {
-                knownCount += 1
-                knownCorrect += pair.tag == tagList[i] ? 1 : 0
-            } else {
-                unknownCount += 1
-                unknownCorrect += pair.tag == tagList[i] ? 1 : 0
-            }
-        }
         
         return tagList
     }
