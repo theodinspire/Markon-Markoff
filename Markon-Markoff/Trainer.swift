@@ -34,6 +34,8 @@ class Trainer {
     }
     
     static func test(file filename: String, withModel viterbi: Viterbi) {
+        print("Testing...")
+        
         guard let testStream = StreamReader(path: arguments[.Test]!) else { exit(EXIT_FAILURE) }
         let testBuilder = TaggedSentenceBuilder(withReader: testStream)
         
@@ -96,6 +98,7 @@ class Trainer {
     
     static func tag(file filename: String, usingModel viterbi: Viterbi) {
         print("Tagging...")
+        
         guard let testStream = StreamReader(path: arguments[.Test]!) else { exit(EXIT_FAILURE) }
         let testBuilder = SentenceBuilder(withReader: testStream)
         
