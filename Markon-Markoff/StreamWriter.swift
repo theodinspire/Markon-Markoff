@@ -9,7 +9,7 @@
 import Foundation
 
 class StreamWriter {
-    var fileHandle: FileHandle!
+    var fileHandle: FileHandle
     let encoding: String.Encoding
     let filename: String
     
@@ -24,7 +24,9 @@ class StreamWriter {
             try FileManager.default.createDirectory(at: parentDirectory, withIntermediateDirectories: true, attributes: nil)
             FileManager.default.createFile(atPath: url.path, contents: nil, attributes: nil)
             
-            fileHandle = FileHandle(forWritingAtPath: path)
+            guard let handle = FileHandle(forWritingAtPath: path) else { return nil }
+            
+            fileHandle = handle
             self.encoding = encoding
         } catch let error {
             print(error.localizedDescription)
@@ -38,6 +40,8 @@ class StreamWriter {
         guard let data = (line + "\n").data(using: encoding) else { return }
         fileHandle.write(data)
     }
+    
+    func writeBlankLine() { write(line: "") }
     
     func close() {
         if !closed {

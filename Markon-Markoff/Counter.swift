@@ -12,6 +12,8 @@ class Counter<T>: Sequence where T: Hashable {
     var counts = [T : Int]()
     var total = 0
     
+    var length: Int { return counts.count }
+    
     // Subscript!
     private(set) subscript(element: T) -> Int {
         get { return counts[element] ?? 0 }

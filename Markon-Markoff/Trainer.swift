@@ -23,12 +23,34 @@ class Trainer {
         let emissor = Emissor()
         let bigrams = BigramDistribution()
         
+        var sentenceCount = 0
+        var tokenCount = 0
+        
         for sentence in builder {
             for (one, two) in sentence.pairs {
                 emissor.count(pair: two)
                 bigrams.count(first: one.tag, second: two.tag)
+                
+                tokenCount += 1
             }
+            
+            sentenceCount += 1
         }
+        
+        var header = "* Training data:\n"
+        header += "- # of training sentences = \(sentenceCount)\n"
+        header += "- # of POS tags (including STOP's) = \(tokenCount)\n"
+        header += "- # of unique bigrams = \(bigrams.count)\n"
+        header += "- # of word tokens = \(tokenCount - sentenceCount)\n"
+        header += "- # of unique words (vocabulary) = \(emissor.words.count)"
+        
+        let emissionFile = prefix(filename: filename, with: "tagEmissions")
+        let unigramFile = prefix(filename: filename, with: "tagUnigrams")
+        let bigramFile = prefix(filename: filename, with: "tagBigrams")
+        
+        emissor.makeCountFile(toFile: emissionFile, withHeader: header)
+        bigrams.makeUnigramCountFile(toFile: unigramFile, withHeader: header)
+        bigrams.makeBigramCountFile(toFile: bigramFile, withHeader: header)
         
         return (emissor, bigrams)
     }
@@ -73,9 +95,6 @@ class Trainer {
         output.write(line: uAcrcy)
         output.write(line: "")
         
-        let longPad: (String) -> String = { $0.padding(toLength: 20, withPad: " ", startingAt: 0) }
-        let shortPad: (String) -> String = { $0.padding(toLength: 4, withPad: " ", startingAt: 0) }
-        
         output.write(line: "\(longPad("TOKEN")) \(shortPad("TAG")) \(shortPad("MDL"))")
         output.write(line: "")
         
@@ -111,9 +130,6 @@ class Trainer {
             sentences.append(testSentence)
             predictedTags.append(viterbi.getTagSequence(for: testSentence))
         }
-        
-        let longPad: (String) -> String = { $0.padding(toLength: 20, withPad: " ", startingAt: 0) }
-        let shortPad: (String) -> String = { $0.padding(toLength: 4, withPad: " ", startingAt: 0) }
         
         output.write(line: "\(longPad("TOKEN")) \(shortPad("MDL"))")
         output.write(line: "")

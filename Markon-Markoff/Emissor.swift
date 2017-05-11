@@ -34,4 +34,21 @@ class Emissor {
     }
     
     func close() { closed = true }
+    
+    func makeCountFile(toFile filename: String, withHeader header: String? = nil) {
+        guard let output = StreamWriter(destinationFile: filename) else { return }
+        
+        if let head = header {
+            output.write(line: head)
+            output.writeBlankLine()
+        }
+        
+        for (tag, counter) in table {
+            for (word, count) in counter {
+                output.write(line: "\(shortPad(tag)) / \(longPad(word)) : \(count)")
+            }
+        }
+        
+        output.close()
+    }
 }
